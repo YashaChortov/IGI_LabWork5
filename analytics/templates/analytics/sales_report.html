@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Отчет по продажам{% endblock %}
+{% block content %}
+    <h2>Отчет по продажам</h2>
+    <p>Общая сумма продаж: {{ total_sales.total }} BYN</p>
+    <h2>Диаграмма товаров по типам</h2>
+    <img src="data:image/png;base64,{{ chart }}" alt="Диаграмма">
+{% endblock %}

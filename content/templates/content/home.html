@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<h2>Добро пожаловать в Автосалон</h2>
+<p>Здесь вы найдете новости, вакансии и отзывы клиентов.</p>
+<ul>
+  <li><a href="{% url 'content:news_list' %}">Новости</a></li>
+  <li><a href="{% url 'content:vacancies_list' %}">Вакансии</a></li>
+  <li><a href="{% url 'content:reviews_list' %}">Отзывы</a></li>
+</ul>
+{% endblock %}
