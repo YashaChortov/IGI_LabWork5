@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Список заказов{% endblock %}
+{% block content %}
+<h2>Список заказов</h2>
+<table border="1" cellpadding="5">
+  <tr>
+    <th>ID</th>
+    <th>Клиент</th>
+    <th>Товар</th>
+    <th>Количество</th>
+    <th>Дата заказа</th>
+    <th>Дата доставки</th>
+  </tr>
+  {% for order in orders %}
+  <tr>
+    <td>{{ order.id }}</td>
+    <td>{{ order.client.full_name }}</td>
+    <td>{{ order.product.name }}</td>
+    <td>{{ order.quantity }}</td>
+    <td>{{ order.order_date|date:"d/m/Y" }}</td>
+    <td>{% if order.delivery_date %}{{ order.delivery_date|date:"d/m/Y" }}{% else %}—{% endif %}</td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="6">Заказов нет</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}
